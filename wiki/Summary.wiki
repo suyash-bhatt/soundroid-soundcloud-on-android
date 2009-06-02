@@ -1,0 +1,12 @@
+#summary One-sentence summary of this page.
+
+= Introduction =
+This is a first proof of concept to connect with Soundcloud secured content with OAuth in Java.
+
+= Details =
+This project has the next dependencies:
+
+  * httpcore-4.0-beta3.jar
+  * commons-logging-1.1.1.jar
+  * httpclient-4.0-beta2.jar
+  * signpost-1.0.jar
