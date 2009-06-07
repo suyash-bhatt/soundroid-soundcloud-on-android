@@ -8,8 +8,6 @@ public class Preferences {
 	private static SharedPreferences prefs;
 	private static SharedPreferences.Editor editor;
 
-	private final static String TRANSMIT_FREQUENCY = "fireeagle.transmit.frequency.minutes";
-
 	private final static String REQUEST_TOKEN_NAME = "request";
 	private final static String USER_SPECIFIC_ACCESS_TOKEN_NAME = "user-specific-access";
 	private final static String GENERAL_ACCESS_TOKEN_NAME = "general-access";
@@ -40,35 +38,31 @@ public class Preferences {
 		System.out.println("updated Token: " + name + " --- " + t.toString());
 	}
 
-	static public Token getRequestToken() {
+	public static Token getRequestToken() {
 		return getToken(REQUEST_TOKEN_NAME);
 	}
 
-	static public void updateRequestToken(Token t) {
+	public static void updateRequestToken(Token t) {
 		updateToken(REQUEST_TOKEN_NAME, t);
 	}
 
-	static public Token getUserSpecificAccessToken() {
+	public static Token getUserSpecificAccessToken() {
 		return getToken(USER_SPECIFIC_ACCESS_TOKEN_NAME);
 	}
 
-	static public void updateUserSpecificAccessToken(Token t) {
+	public static void updateUserSpecificAccessToken(Token t) {
 		updateToken(USER_SPECIFIC_ACCESS_TOKEN_NAME, t);
 	}
 
-	static public Token getGeneralAccessToken() {
+	public static Token getGeneralAccessToken() {
 		return getToken(GENERAL_ACCESS_TOKEN_NAME);
 	}
 
-	static public void updateGeneralAccessToken(Token t) {
+	public static void updateGeneralAccessToken(Token t) {
 		updateToken(GENERAL_ACCESS_TOKEN_NAME, t);
 	}
 
-	static public void updateTransmitFrequency(int minutes) {
-		editor.putInt(TRANSMIT_FREQUENCY, minutes);
-	}
-
-	static public void commit() {
+	public static void commit() {
 		editor.commit();
 	}
 }
