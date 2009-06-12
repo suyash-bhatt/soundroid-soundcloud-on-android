@@ -134,6 +134,7 @@ public class XStreamFactory {
 		//xstream.registerConverter(new CalendarConverter(), XStream.PRIORITY_VERY_HIGH);
 		//xstream.registerConverter(new UserConverter(xstream.getMapper(),xstream.getReflectionProvider()), XStream.PRIORITY_VERY_HIGH);
 			
+ 		
 		xstream.alias("comments", Comments.class);
 		xstream.alias("comment", Comment.class);	
 		
@@ -156,16 +157,14 @@ public class XStreamFactory {
 		//xstream.registerConverter(new CalendarConverter(), XStream.PRIORITY_VERY_HIGH);
 		//xstream.registerConverter(new UserConverter(xstream.getMapper(),xstream.getReflectionProvider()), XStream.PRIORITY_VERY_HIGH);
 			
+ 		xstream.alias("events", Events.class);
+		xstream.alias("event", Event.class);
 		xstream.alias("track", Track.class);
-		xstream.alias("comment", Comment.class);	
-		
+		xstream.alias("comment", Comment.class);			
 			  
 		xstream.aliasField("created-at", Event.class, "createdAt");
 		xstream.aliasField("id", Event.class, "id");
-		xstream.aliasField("resource_id", Event.class, "resourceId");
-		xstream.aliasField("type", Event.class, "type");
-		xstream.aliasField("comment", Comment.class, "comment");
-		xstream.aliasField("track", Track.class, "track");	
+		xstream.aliasField("uri", Event.class, "resourceId");
 
 		return xstream;
 	}

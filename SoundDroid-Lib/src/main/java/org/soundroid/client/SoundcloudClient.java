@@ -368,6 +368,13 @@ public class SoundcloudClient {
 				commentsResponse.setData(comments);	
 				return commentsResponse;
 				
+			case SoundroidConstants.EVENTS:	
+				XStream xstreamEvents = XStreamFactory.createXStream(requestType);
+				Events events = (Events) xstreamEvents.fromXML(xmlResponse);	
+				Response<Events> eventsResponse = new Response<Events>();
+				eventsResponse.setData(events);	
+				return eventsResponse;
+				
 			default: 
 				return new Response();
 		}

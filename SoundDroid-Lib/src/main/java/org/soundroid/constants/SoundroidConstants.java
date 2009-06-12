@@ -13,9 +13,7 @@ public class SoundroidConstants
      
 	private String OAUTH_CONSUMER_KEY = "YOUR_CONSUMER_KEY";
 	private String OAUTH_CONSUMER_SECRET = "YOUR_CONSUMER_SECRET"; 
-	
-	
-	
+		
 	public static final String OAUTH_CALLBACK_URL = "://callback";
 	
 	public static final String CALLBACK_URL_SCHEME = "soundroid-app";

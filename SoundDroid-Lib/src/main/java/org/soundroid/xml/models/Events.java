@@ -21,7 +21,7 @@ public class Events {
 		return events;
 	}
 
-	public void setEvents(ArrayList<Event> tracks) {
-		this.events = tracks;
+	public void setEvents(ArrayList<Event> events) {
+		this.events = events;
 	}
 }
