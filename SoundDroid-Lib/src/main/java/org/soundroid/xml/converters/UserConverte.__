@@ -1,0 +1,73 @@
+package org.soundroid.xml.converters;
+
+import org.soundroid.xml.models.User;
+
+import com.thoughtworks.xstream.converters.Converter;
+import com.thoughtworks.xstream.converters.MarshallingContext;
+import com.thoughtworks.xstream.converters.UnmarshallingContext;
+import com.thoughtworks.xstream.io.HierarchicalStreamReader;
+import com.thoughtworks.xstream.io.HierarchicalStreamWriter;
+
+public class UserConverter implements Converter{
+
+	@Override
+	public void marshal(Object arg0, HierarchicalStreamWriter arg1,	MarshallingContext arg2) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Object unmarshal(HierarchicalStreamReader reader, UnmarshallingContext arg1) {
+		User user = new User();
+			
+		String city = reader.getAttribute("city");
+		String description = reader.getAttribute("description");
+		String discogsName = reader.getAttribute("discogs-name");
+		String id = reader.getAttribute("id");
+		String myspaceName = reader.getAttribute("myspace-name");
+		String permalink = reader.getAttribute("permalink");
+		String username = reader.getAttribute("username");
+		String website = reader.getAttribute("website");
+		String websiteTitle = reader.getAttribute("website-title");
+		String fullName = reader.getAttribute("full-name");
+		String country = reader.getAttribute("country");
+		String online = reader.getAttribute("online");
+		String permalinkUrl = reader.getAttribute("permalink-url");
+		String avatarUrl = reader.getAttribute("avatar-url");
+		String uri = reader.getAttribute("uri");
+		String trackCount = reader.getAttribute("track-count");
+
+
+		user.setAvatarUrl(avatarUrl);
+		user.setCity(city);
+		user.setCountry(country);
+		user.setDescription(description);
+		user.setDiscogsName(discogsName);
+		user.setFullName(fullName);
+		user.setId(id);
+		user.setMyspaceName(myspaceName);
+		user.setOnline(online);
+		user.setPermalink(permalink);
+		user.setPermalinkUrl(permalinkUrl);
+		user.setTrackCount(trackCount);
+		user.setUri(uri);
+		user.setUsername(username);
+		user.setWebsite(website);
+		user.setWebsiteTitle(websiteTitle);
+		
+		return user;
+	}
+
+	@Override
+	public boolean canConvert(Class clazz) {
+		return clazz.equals(User.class);
+
+	}
+
+
+ 
+	
+
+
+
+}
