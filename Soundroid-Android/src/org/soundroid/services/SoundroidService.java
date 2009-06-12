@@ -1,4 +1,8 @@
-package org.soundroid;
+package org.soundroid.services;
+
+
+import org.soundroid.application.SoundroidApplication;
+import org.soundroid.client.SoundcloudClient;
 
 import android.app.Service;
 import android.content.ComponentName;

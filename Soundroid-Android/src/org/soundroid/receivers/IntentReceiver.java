@@ -1,4 +1,6 @@
-package org.soundroid;
+package org.soundroid.receivers;
+
+import org.soundroid.services.SoundroidService;
 
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;

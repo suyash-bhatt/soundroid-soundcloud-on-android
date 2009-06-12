@@ -1,4 +1,4 @@
-package org.soundroid;
+package org.soundroid.activities;
 
 import android.app.Activity;
 import android.content.Intent;

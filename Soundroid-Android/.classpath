@@ -3,7 +3,8 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="gen"/>
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
-	<classpathentry kind="lib" path="D:/desarrollo/deps/signpost-1.0-SNAPSHOT.jar" sourcepath="/signpost"/>
 	<classpathentry kind="lib" path="D:/desarrollo/deps/oauth-core-20090408.jar"/>
+	<classpathentry kind="lib" path="D:/desarrollo/deps/xstream-1.3.1.jar"/>
+	<classpathentry kind="lib" path="D:/desarrollo/workspace/SoundDroid-Lib/target/SoundDroid-Lib-1.0-SNAPSHOT.jar" sourcepath="/SoundDroid-Lib"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
