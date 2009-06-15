@@ -1,84 +1,112 @@
 package org.soundroid.activities;
 
+import org.soundroid.oauth.Response;
 import org.soundroid.xml.models.User;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.ScrollView;
+import android.widget.TextView;
 //Need to study how to call an activity from other
 public class AboutMeActivity extends AbstractActivity{
-	private EditText usernameField;
-	private EditText cityField;
-	private EditText countryField;
-	private User user;
+	public static final String ACTION_ABOUT = "org.soundroid.ABOUT";
+	public static final Intent INTENT = new Intent(ACTION_ABOUT);
 	
-	public AboutMeActivity(User user){
-		this.user = user;
-	}
+	private TextView cityField;
+	private TextView descriptionField;
+	private TextView discogsNameField;
+	private TextView idField;
+	private TextView myspaceNameField;
+	private TextView permalinkField;
+	private TextView usernameField;
+	private TextView websiteField;
+	private TextView websiteTitleField;
+	private TextView fullNameField;
+	private TextView countryField;
+	private TextView onlineField;
+	private TextView permalinkUrlField;
+	private TextView avatarUrlField;
+	private TextView uriField;
+	private TextView trackCountField;
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
+		Response<User> response = SoundroidActivity.client.getInfoAboutMe();
+		User user = response.getData();
+		
+		ScrollView scroll = new ScrollView(this);
+		
+		LinearLayout layout = new LinearLayout(this);
+		layout.setOrientation(LinearLayout.VERTICAL);
+		
+		scroll.addView(layout);		
+		
+		fullNameField = new TextView(this);
+		fullNameField.setText(user.getFullName());
+		
+		usernameField = new TextView(this);
+		usernameField.setText(user.getUsername());
+		
+		cityField = new TextView(this);
+		cityField.setText(user.getCity());
+		
+		trackCountField = new TextView(this);
+		trackCountField.setText(user.getTrackCount());
+		
+		avatarUrlField = new TextView(this);
+		avatarUrlField.setText(user.getAvatarUrl());
+		
+		onlineField = new TextView(this);
+		onlineField.setText(user.getOnline());
+		
+		countryField = new TextView(this);
+		countryField.setText(user.getCountry());
+		
+		descriptionField = new TextView(this);
+		descriptionField.setText(user.getDescription());
+		
+		discogsNameField = new TextView(this);
+		discogsNameField.setText(user.getDiscogsName());
+		
+		myspaceNameField = new TextView(this);
+		myspaceNameField.setText(user.getMyspaceName());
+			
+		permalinkField = new TextView(this);
+		permalinkField.setText(user.getPermalink());
+				
+		websiteField = new TextView(this);
+		websiteField.setText(user.getWebsite());
+		
+		websiteTitleField = new TextView(this);
+		websiteTitleField.setText(user.getWebsiteTitle());
+				
+		permalinkUrlField = new TextView(this);
+		permalinkUrlField.setText(user.getPermalinkUrl());		
+		
+		uriField = new TextView(this);
+		uriField.setText(user.getUri());
+			
+		
+		layout.addView(fullNameField);
+		layout.addView(usernameField);
+		layout.addView(cityField);
+		layout.addView(trackCountField);
+		layout.addView(avatarUrlField);		
+		layout.addView(onlineField);
+		layout.addView(countryField);
+		layout.addView(descriptionField);
+		layout.addView(discogsNameField);
+		layout.addView(myspaceNameField);
+		layout.addView(permalinkField);
+		layout.addView(websiteField);
+		layout.addView(websiteTitleField);
+		layout.addView(permalinkUrlField);
+		layout.addView(uriField);		
+		
+		setContentView(scroll);
 	}
-//	private LinearLayout root;
-//
-//	@Override
-//	public void onCreate(Bundle savedInstanceState) {
-//		super.onCreate(savedInstanceState);
-//
-//        LinearLayout.LayoutParams containerParams
-//            = new LinearLayout.LayoutParams(
-//                ViewGroup.LayoutParams.FILL_PARENT,
-//                ViewGroup.LayoutParams.WRAP_CONTENT,
-//                0.0F);
-//
-//        LinearLayout.LayoutParams widgetParams
-//            = new LinearLayout.LayoutParams(
-//                ViewGroup.LayoutParams.FILL_PARENT,
-//                ViewGroup.LayoutParams.FILL_PARENT,
-//                1.0F);
-//
-//        root = new LinearLayout(this);
-//        root.setOrientation(LinearLayout.VERTICAL);
-//        root.setBackgroundColor(Color.LTGRAY);
-//        root.setLayoutParams(containerParams);
-//
-//        LinearLayout ll = new LinearLayout(this);
-//        ll.setOrientation(LinearLayout.HORIZONTAL);
-//        ll.setBackgroundColor(Color.GRAY);
-//        ll.setLayoutParams(containerParams);
-//        root.addView(ll);
-//
-//        EditText tb = new EditText(this);
-//        tb.setText("");
-//        tb.setFocusable(false);
-//        tb.setLayoutParams(widgetParams);
-//        ll.addView(tb);
-//
-//        tb = new EditText(this);
-//        tb.setText("");
-//        tb.setFocusable(false);
-//        tb.setLayoutParams(widgetParams);
-//        ll.addView(tb);
-//
-//        ll = new LinearLayout(this);
-//        ll.setOrientation(LinearLayout.HORIZONTAL);
-//        ll.setBackgroundColor(Color.DKGRAY);
-//        ll.setLayoutParams(containerParams);
-//        root.addView(ll);
-//
-//        Button b = new Button(this);
-//        b.setText("");
-//        b.setTextColor(Color.RED);
-//        b.setLayoutParams(widgetParams);
-//        ll.addView(b);
-//
-//        b = new Button(this);
-//        b.setText("");
-//        b.setTextColor(Color.GREEN);
-//        b.setLayoutParams(widgetParams);
-//        ll.addView(b);
-//
-//        setContentView(root);
-//
-//	}
 
 }

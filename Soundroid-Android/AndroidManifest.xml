@@ -22,13 +22,37 @@
 				<data android:scheme="soundroid-app" />
 			</intent-filter>
 		</activity>
+		
+		<activity android:name="org.soundroid.activities.AboutMeActivity" android:label="@string/app_name">
+			<intent-filter>
+                <action android:name="org.soundroid.ABOUT" />
+                 <action android:name="android.intent.action.VIEW" />
+                <action android:name="android.intent.action.EDIT" />
+                <action android:name="android.intent.action.PICK" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+		</activity>
+		
+		<activity android:name="org.soundroid.activities.ContactsActivity" android:label="@string/app_name">
+			<intent-filter>
+                <action android:name="org.soundroid.CONTACTS" />
+                 <action android:name="android.intent.action.VIEW" />
+                <action android:name="android.intent.action.EDIT" />
+                <action android:name="android.intent.action.PICK" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+		</activity>
+		
+		
 		<receiver android:name="org.soundroid.receivers.IntentReceiver" 
         		android:enabled="true">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
+        
         <service android:name="org.soundroid.services.SoundroidService" />
+        
 	</application>
 	<uses-sdk android:minSdkVersion="3" />
 </manifest>
