@@ -10,6 +10,7 @@ import org.soundroid.xml.models.Events;
 import org.soundroid.xml.models.Track;
 import org.soundroid.xml.models.Tracks;
 import org.soundroid.xml.models.User;
+import org.soundroid.xml.models.Users;
 
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.converters.extended.ToStringConverter;
@@ -31,6 +32,9 @@ public class XStreamFactory {
 				break;
 			case SoundroidConstants.EVENTS:
 				xstream = events();
+				break;
+			case SoundroidConstants.CONTACTS:
+				xstream = contacts();
 				break;
 		}
 
@@ -165,6 +169,34 @@ public class XStreamFactory {
 		xstream.aliasField("created-at", Event.class, "createdAt");
 		xstream.aliasField("id", Event.class, "id");
 		xstream.aliasField("uri", Event.class, "resourceId");
+
+		return xstream;
+	}
+	
+	private static XStream contacts() {
+		XStream xstream = new XStream(new DomDriver());
+	
+ 		xstream.addImplicitCollection(Users.class, "users", User.class);
+			
+ 		xstream.alias("users", Users.class);
+ 		xstream.alias("user", User.class);			
+			  
+ 		xstream.aliasField("city", User.class, "city");
+		xstream.aliasField("description ", User.class, "description ");
+		xstream.aliasField("discogs-name", User.class, "discogsName");
+		xstream.aliasField("id", User.class, "id");
+		xstream.aliasField("myspace-name", User.class, "myspaceName");
+		xstream.aliasField("permalink", User.class, "permalink");
+		xstream.aliasField("username", User.class, "username");
+		xstream.aliasField("website", User.class, "website");
+		xstream.aliasField("website-title", User.class, "websiteTitle");
+		xstream.aliasField("full-name", User.class, "fullName");
+		xstream.aliasField("country", User.class, "country");
+		xstream.aliasField("online", User.class, "online");
+		xstream.aliasField("permalink-url", User.class, "permalinkUrl");
+		xstream.aliasField("avatar-url", User.class, "avatarUrl");
+		xstream.aliasField("uri", User.class, "uri");
+		xstream.aliasField("track-count", User.class, "trackCount");
 
 		return xstream;
 	}

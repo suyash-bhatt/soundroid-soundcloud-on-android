@@ -7,6 +7,7 @@ public class SoundroidConstants
 	public final static int TRACKS = 1;
 	public final static int COMMENTS = 2;
 	public final static int EVENTS = 3;
+	public final static int CONTACTS = 4;
 	
 	public static final String API_VERSION = "0.1";
 	public static final String WEB_SERVICE_BASE_URL = "http://api.soundcloud.com";

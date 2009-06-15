@@ -27,6 +27,7 @@ import org.soundroid.xml.models.Comments;
 import org.soundroid.xml.models.Events;
 import org.soundroid.xml.models.Tracks;
 import org.soundroid.xml.models.User;
+import org.soundroid.xml.models.Users;
 
 import com.thoughtworks.xstream.XStream;
 
@@ -92,6 +93,13 @@ public class SoundcloudClient {
 	@SuppressWarnings("unchecked")
 	public Response<Comments> getComments() {
 		Response<Comments> response = (Response<Comments>) sendSoundcloudRequest("GET", "/me/comments.xml", SoundroidConstants.COMMENTS, null, this.getUserSpecificAccessToken());
+		return response;
+	}
+	
+	// /me/contacts
+	@SuppressWarnings("unchecked")
+	public Response<Users> getContacts() {
+		Response<Users> response = (Response<Users>) sendSoundcloudRequest("GET", "/me/contacts.xml", SoundroidConstants.CONTACTS, null, this.getUserSpecificAccessToken());
 		return response;
 	}
 	
@@ -374,6 +382,13 @@ public class SoundcloudClient {
 				Response<Events> eventsResponse = new Response<Events>();
 				eventsResponse.setData(events);	
 				return eventsResponse;
+				
+			case SoundroidConstants.CONTACTS:	
+				XStream xstreamContacts = XStreamFactory.createXStream(requestType);
+				Users contacts = (Users) xstreamContacts.fromXML(xmlResponse);	
+				Response<Users> contactsResponse = new Response<Users>();
+				contactsResponse.setData(contacts);	
+				return contactsResponse;
 				
 			default: 
 				return new Response();
