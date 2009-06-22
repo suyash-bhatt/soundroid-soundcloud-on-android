@@ -2,7 +2,7 @@ package org.soundroid.services;
 
 
 import org.soundroid.application.SoundroidApplication;
-import org.soundroid.client.SoundcloudClient;
+import org.soundroid.client.SoundcloudClientJSON;
 
 import android.app.Service;
 import android.content.ComponentName;
@@ -14,7 +14,7 @@ import android.os.IBinder;
 import android.util.Log;
 
 public class SoundroidService extends Service implements android.location.LocationListener {
-	private SoundcloudClient client;
+	private SoundcloudClientJSON client;
 
 	static public Intent getIntent(Context ctx) {
 		Intent i = new Intent();

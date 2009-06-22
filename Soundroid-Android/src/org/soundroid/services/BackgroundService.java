@@ -1,8 +1,8 @@
 package org.soundroid.services;
 
 import org.soundroid.application.SoundroidApplication;
-import org.soundroid.client.SoundcloudClient;
-import org.soundroid.util.ClientSettings;
+import org.soundroid.client.SoundcloudClientJSON;
+import org.soundroid.lib.util.ClientSettings;
 
 import android.app.Service;
 import android.content.ComponentName;
@@ -13,7 +13,7 @@ import android.os.IBinder;
 import android.util.Log;
 
 public class BackgroundService extends Service {
-	private SoundcloudClient client;
+	private SoundcloudClientJSON client;
 	private ClientSettings settings;
 
 	static public Intent getIntent(Context ctx) {

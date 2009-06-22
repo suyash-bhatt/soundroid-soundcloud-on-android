@@ -1,7 +1,9 @@
 package org.soundroid.activities;
 
+
+
+import org.soundroid.models.Users;
 import org.soundroid.oauth.Response;
-import org.soundroid.xml.models.Users;
 
 import android.content.Intent;
 import android.os.Bundle;

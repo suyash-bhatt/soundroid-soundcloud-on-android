@@ -9,6 +9,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Properties;
 
+import org.soundroid.lib.util.ClientSettings;
 import org.soundroid.oauth.Token;
 
 import android.content.Intent;

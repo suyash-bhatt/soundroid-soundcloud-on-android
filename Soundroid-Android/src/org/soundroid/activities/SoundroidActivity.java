@@ -1,16 +1,14 @@
 package org.soundroid.activities;
 
 import org.soundroid.application.SoundroidApplication;
-import org.soundroid.client.SoundcloudClient;
+import org.soundroid.client.SoundcloudClientJSON;
+import org.soundroid.lib.util.ClientSettings;
+import org.soundroid.models.Comment;
+import org.soundroid.models.Comments;
 import org.soundroid.oauth.Response;
 import org.soundroid.services.BackgroundService;
-import org.soundroid.util.ClientSettings;
 import org.soundroid.util.Preferences;
 import org.soundroid.util.Util;
-import org.soundroid.xml.models.Comment;
-import org.soundroid.xml.models.Comments;
-import org.soundroid.xml.models.Track;
-import org.soundroid.xml.models.Tracks;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -24,11 +22,13 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
+
+
 public class SoundroidActivity extends AbstractActivity {
 	static final int ID_SETTINGS = Menu.FIRST;
 	static final int ID_ABOUT = Menu.FIRST + 1;
 
-	public static SoundcloudClient client;
+	public static SoundcloudClientJSON client;
 	private ClientSettings settings;
 	private Button btnMe;
 	private Button btnTracks;
@@ -111,8 +111,8 @@ public class SoundroidActivity extends AbstractActivity {
 					Preferences.updateRequestToken(client.getRequestToken());
 					Preferences.commit();
 
-					//openWebBrowser(url);
-					openWebBrowser("soundroid-app://callback");
+					openWebBrowser(url);
+					//openWebBrowser("soundroid-app://callback");
 
 					//SoundroidActivity.this.finish();
 
@@ -147,39 +147,8 @@ public class SoundroidActivity extends AbstractActivity {
 		btnMe.setVisibility(View.GONE);
 		btnMe.setOnClickListener(new OnClickListener() {
 
-			public void onClick(View v) {
-				
-//				Response<User> response = client.getInfoAboutMe();
-//				User user = response.getData();	
-				//AboutMeActivity am = new AboutMeActivity(user);
-		    	
+			public void onClick(View v) {		    	
 				SoundroidActivity.this.startActivity(AboutMeActivity.INTENT);
-				
-				//setContentView(R.layout.aboutmeactivity);
-			//	((LinearLayout) findViewById(R.id.android_aboutMeLayout)).addView(dotView, 0);
-
-				
-//				Intent i = new Intent(getApplicationContext(),	AboutMeActivity.class);
-//				SoundroidActivity.this.startActivity(i);
-				
-				//startActivity(new Intent(SoundroidActivity.this, AboutMeActivity.class));
-
-				
-//				Runnable runner = new Runnable() {
-//					public void run() {
-//						try {
-//							Response<User> response = client.getInfoAboutMe();
-//							User user = response.getData();					    	
-//					    	
-//							setContentView(R.layout.activity_list_item);
-//
-//
-//						} catch (Throwable t) {
-//							t.printStackTrace(); // todo : improve this
-//						}
-//					}
-//				};
-//				startThread("about me thread", runner);
 			}
 
 		});
@@ -192,22 +161,8 @@ public class SoundroidActivity extends AbstractActivity {
 		btnTracks.setVisibility(View.GONE);
 		btnTracks.setOnClickListener(new OnClickListener() {
 
-			public void onClick(View v) {
-				Runnable runner = new Runnable() {
-					public void run() {
-						try {
-							Response<Tracks> response = client.getTracks();
-							Tracks tracks = response.getData();
-
-							for (Track e : tracks.getTracks()) {
-								String duration = e.getBpm();
-							}
-						} catch (Throwable t) {
-							t.printStackTrace(); // todo : improve this
-						}
-					}
-				};
-				startThread("tracks thread", runner);
+			public void onClick(View v) {				
+				SoundroidActivity.this.startActivity(TracksActivity.INTENT);
 			}
 
 		});

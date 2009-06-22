@@ -1,36 +1,43 @@
 package org.soundroid.application;
 
-import org.soundroid.client.SoundcloudClient;
+import org.soundroid.client.SoundcloudClientJSON;
 import org.soundroid.constants.SoundroidConstants;
+import org.soundroid.factory.ClientFactory;
+import org.soundroid.lib.util.ClientSettings;
 import org.soundroid.oauth.Token;
-import org.soundroid.util.ClientSettings;
 import org.soundroid.util.Preferences;
 import org.soundroid.util.Util;
 
 import android.app.Application;
 
+
+
 public class SoundroidApplication extends Application {
 
-	static private SoundroidApplication appInstance;
+	private static SoundroidApplication appInstance;
 
-	static public Token getConsumerToken() {
+	public static Token getConsumerToken() {
 		Token consumerToken = new Token();
 		consumerToken.setPublicKey(SoundroidConstants.OAUTH_CONSUMER_KEY);
 		consumerToken.setSecret(SoundroidConstants.OAUTH_CONSUMER_SECRET);
 		return consumerToken;
 	}
 
-	static public SoundcloudClient createSoundcloudClient() {
+	public static SoundcloudClientJSON createSoundcloudClient() {
 
-		// todo (?) : store SoundcloudClient in a static variable
-		SoundcloudClient client = new SoundcloudClient();
+		// todo (?) : store SoundcloudClient in a static variable		
+		SoundcloudClientJSON client = ClientFactory.createJSONClient();
+		
+		//SoundcloudClientJSON client = new SoundcloudClientJSON();
+		
 		client.setCompressionEnabled(false); // todo : use true
-		ClientSettings settings = new ClientSettings();
 
+		ClientSettings settings = new ClientSettings();
 		settings.setOAuthCallbackUrl(Util.getCallbackUrl());
 		settings.setUserSpecificToken(Preferences.getUserSpecificAccessToken());
 		settings.setGeneralToken(Preferences.getGeneralAccessToken());
 		settings.setConsumerToken(getConsumerToken());
+
 		client.setClientSettings(settings);
 
 		return client;
