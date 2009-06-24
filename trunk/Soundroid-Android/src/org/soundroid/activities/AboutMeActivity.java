@@ -10,7 +10,6 @@ import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Gravity;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
@@ -324,41 +323,5 @@ public class AboutMeActivity extends AbstractActivity {
 	
 			return bmImg;
 		}
-	}
-
-//	private class DownloadImageTask extends AsyncTask {
-//
-//		@Override
-//		protected Object doInBackground(Object... args) {
-//			URL myFileUrl = null;
-//			Bitmap bmImg = null;
-//			TextView tv = (TextView) args[0];
-//					
-//			try {
-//				myFileUrl = new URL((String) tv.getText());
-//				HttpURLConnection conn = (HttpURLConnection) myFileUrl.openConnection();
-//				conn.setDoInput(true);
-//				conn.connect();
-//				int length = conn.getContentLength();
-//				int[] bitmapData = new int[length];
-//				byte[] bitmapData2 = new byte[length];
-//				InputStream is = conn.getInputStream();
-//
-//				bmImg = BitmapFactory.decodeStream(is);
-//				
-//				
-//			} catch (MalformedURLException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			} catch (IOException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
-//			return bmImg;
-//		}
-//	}
-
-	public void onClick(View v) {
-		
 	}
 }

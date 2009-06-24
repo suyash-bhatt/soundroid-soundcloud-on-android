@@ -34,8 +34,7 @@ public class TrackAdapter extends BaseAdapter {
 	}
 
 	public View getView(int position, View convertView, ViewGroup parent) {
-		Track weather = trackList.get(position);
-		return new TrackAdapterView(this.context, weather);
+		Track track = trackList.get(position);
+		return new TrackAdapterView(this.context, track);
 	}
-
 }

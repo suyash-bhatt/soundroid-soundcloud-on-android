@@ -26,39 +26,8 @@ public class TracksActivity extends ListActivity {
 	       
 			Response<Tracks> response = SoundroidActivity.client.getTracks();
 			Tracks tracks = response.getData();
-	    
-	       TrackAdapter trackAdapter = new TrackAdapter(this, tracks.getTracks()); 
-	      
-	       setListAdapter(trackAdapter);
-	       
-//		super.onCreate(savedInstanceState);
-//
-//		Response<Tracks> response = SoundroidActivity.client.getTracks();
-//		Tracks tracks = response.getData();
-//
-//		setListAdapter(new ArrayAdapter<Track>(this,
-//				android.R.layout.simple_list_item_1, tracks.getTracks()));
-
-		// for (Track track : tracks.getTracks()) {
-		//			
-		// Bitmap waveForm = BitmapUtils.loadBitmap(track.getWaveform_url());
-		//			
-		// if(waveForm != null){
-		// LinearLayout layout = new LinearLayout(this);
-		// layout.setOrientation(LinearLayout.HORIZONTAL);
-		// layout.setGravity(Gravity.FILL);
-		//				
-		// waveform = new ImageView(this);
-		// waveform.setEnabled(true);
-		// waveform.setImageBitmap(waveForm);
-		// layout.addView(waveform);
-		//				
-		// mainLayout.addView(layout);
-		// }
-		//		
-		// }
-
-//		setContentView(R.layout.list);
-
+	    	 
+			TrackAdapter trackAdapter = new TrackAdapter(this, tracks.getTracks());	      
+			setListAdapter(trackAdapter);
 	}
 }

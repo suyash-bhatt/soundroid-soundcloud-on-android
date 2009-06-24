@@ -195,8 +195,7 @@ public class SoundroidActivity extends AbstractActivity {
 
 			public void onClick(View v) {
 				
-				SoundroidActivity.this.startActivity(ContactsActivity.INTENT);
-			
+				SoundroidActivity.this.startActivity(ContactsActivity.INTENT);			
 			}
 
 		});
